@@ -1,0 +1,18 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+<div class="content">
+  <table>
+    <% @feeds.each do |feed| %>
+     <tr>
+       <td><%= feed.content %></td>
+     </tr>
+     <tr>
+       <td><%= image_tag feed.image.to_s %></td>
+       <td><%= link_to 'Show', feed %></td>
+       <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+       <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+    <% end %>
+  </table>
+</div>

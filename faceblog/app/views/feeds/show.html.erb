@@ -1,0 +1,10 @@
+<h1>Details</h1>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @feed.image.url %>
+  <strong>message:</strong>
+  <%= @feed.content %>
+</p>
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>

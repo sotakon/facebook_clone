@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Faceblog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <%= image_tag "facebook.png", class: "logo_image"%>
+      <nav>
+        <ul class="top_menu">
+          <li><%= link_to 'Home', feeds_path %></li>
+          <li>
+            <% if logged_in? %>
+            <%= link_to "Profile", user_path(current_user.id) %>
+          </li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <li>
+            <% else %>
+            <%= link_to "Sign up", new_user_path %>
+          </li>
+          <li>
+            <%= link_to "Login", new_session_path %>
+            <% end %>
+          </li>
+          <li><%= link_to 'share', new_feed_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <%= yield %>
+    <footer>
+      <p>プライバシー·利用規約·広告·Ad Choices</p>
+      <p>Cookie·その他·Faceblog©2021</p>
+    </footer>
+  </body>
+</html>
