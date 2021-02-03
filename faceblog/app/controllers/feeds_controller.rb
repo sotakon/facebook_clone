@@ -54,6 +54,7 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
   end
   def feed_params
-    params.require(:feed).permit(:image, :image_cache, :content).merge(user_id: current_user.id)
+    params.require(:feed).permit(:image, :image_cache, :content, :user_id)
+    # .merge(user_id: current_user.id)
   end
 end
