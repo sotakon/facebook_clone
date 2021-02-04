@@ -2,7 +2,9 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Image:</strong>
+  <% if !@feed.image.url.nil? %>
   <%= image_tag @feed.image.url %>
+  <% end %>
   <strong>message:</strong>
   <%= @feed.content %>
 </p>

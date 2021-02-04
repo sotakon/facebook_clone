@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   protect_from_forgery
   before_action :set_feed, only: %i[show edit update destroy ]
-  before_action :authenticate_user, {only: [:create]}
+  before_action :authenticate_user, {only: [:create, :confirm]}
   def index
     @feeds = Feed.all
   end
@@ -59,12 +59,5 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :content, :user_id)
     # .merge(user_id: current_user.id)
-  end
-  def authenticate_user
-  # 現在ログイン中のユーザが存在しない場合、ログインページにリダイレクトさせる。
-    if @current_user == nil
-    flash[:notice] = t('notice.login_needed')
-    redirect_to new_session_path
-    end
   end
 end
