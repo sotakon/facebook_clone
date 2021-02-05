@@ -33,6 +33,7 @@ class FeedsController < ApplicationController
   def confirm
     @feed = current_user.feeds.build(feed_params)
   end
+
   def edit
   end
 
