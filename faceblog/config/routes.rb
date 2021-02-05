@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     collection do
       post :confirm
   resources :sessions, only: [:new, :create, :destroy]
-  
+  root 'feeds#index'
+
     end
   end
 end
