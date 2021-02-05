@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
   before_action :authenticate_user, {only: [:create, :confirm]}
   def index
     @feeds = Feed.all
+    @users = User.all
   end
   def show
   end
@@ -53,6 +54,10 @@ class FeedsController < ApplicationController
       format.html { redirect_to feeds_url, notice: "Feed was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def login?
+  # 既ログインならばtrue、未ログインならばfalseを返す
   end
 
   private

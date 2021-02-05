@@ -5,10 +5,13 @@
   <table>
     <% @feeds.each do |feed| %>
      <tr>
-       <td><%= feed.content %></td>
+       <td><%= feed.user.name%></td>
      </tr>
      <tr>
        <td><%= image_tag feed.image.to_s %></td>
+     </tr>
+     <tr>
+       <td><%= feed.content %></td>
        <td><%= link_to 'Show', feed %></td>
        <td><%= link_to 'Edit', edit_feed_path(feed.id) %></td>
        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>

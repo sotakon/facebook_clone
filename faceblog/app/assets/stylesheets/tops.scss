@@ -60,3 +60,11 @@ body {
     padding-bottom: 65px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
+.error_explanation{
+  text-align: center;
+  text-decoration: none;
+}
+.feed_content{
+  text-align: center;
+  display: inline-block;
+}

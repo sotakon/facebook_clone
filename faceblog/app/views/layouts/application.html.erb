@@ -27,7 +27,11 @@
             <%= link_to "Login", new_session_path %>
             <% end %>
           </li>
-          <li><%= link_to 'share', new_feed_path %></li>
+          <li>
+            <% if logged_in? %>
+            <%= link_to 'share', new_feed_path %>
+            <% end %>
+          </li>
         </ul>
       </nav>
     </header>
