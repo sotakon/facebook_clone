@@ -7,6 +7,7 @@ class FeedsController < ApplicationController
   end
   def show
   end
+
   def new
     if params[:back]
       @feed = Feed.new(feed_params)
@@ -14,9 +15,9 @@ class FeedsController < ApplicationController
       @feed = Feed.new
     end
   end
+
   def create
-    @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    @feed = current_user.feeds.build(feed_params)
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: "Feed was successfully created." }
@@ -27,12 +28,13 @@ class FeedsController < ApplicationController
       end
     end
   end
+
   def confirm
-    @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    @feed = current_user.feeds.build(feed_params)
   end
   def edit
   end
+
   def update
     respond_to do |format|
       if @feed.update(feed_params)
@@ -44,6 +46,7 @@ class FeedsController < ApplicationController
       end
     end
   end
+
   def destroy
     @feed.destroy
     respond_to do |format|
