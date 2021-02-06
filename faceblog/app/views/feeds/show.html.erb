@@ -8,5 +8,9 @@
   <strong>message:</strong>
   <%= @feed.content %>
 </p>
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<% if @feed.user == current_user %>
+  <%= link_to "Edit", edit_feed_path %>
+<% else %>
+  <a></a>
+<% end %>
 <%= link_to 'Back', feeds_path %>
