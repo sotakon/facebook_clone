@@ -1,0 +1,70 @@
+header {
+  width: 100%;
+  background-color: white;
+  height: 54px;
+  margin: 0
+}
+header ul {
+  margin: 0 auto;
+  list-style: none;
+}
+header ul a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #3B5998;
+}
+header li {
+  float: left;
+  width: auto;
+}
+header ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+footer {
+  width: 100%;
+  background-color:white;
+  padding: 10px 0 10px 0;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  height: 65px;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  text-align: center;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+.content{
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  margin-top: 20px;
+}
+.logo_image {
+  width: 80px;
+  float: left;
+}
+.field{
+  text-align: center;
+  display: inline-block;
+}
+.wrapper{
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 65px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+.error_explanation{
+  text-align: center;
+  text-decoration: none;
+}
+.feed_content{
+  text-align: center;
+  display: inline-block;
+}

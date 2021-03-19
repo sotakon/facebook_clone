@@ -1,0 +1,21 @@
+<%= form_with(model: @feed, local: true ,url: choose_new_or_edit ) do |form| %>
+<% if @feed.errors.any? %>
+  <div class="error_explanation">
+    <h2>Please enter</h2>
+  </div>
+<% end %>
+  <div class="field">
+    <%= form.label :image %>
+    <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+  <%= form.label :message %>
+  <div class="feed_content">
+
+    <%= form.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

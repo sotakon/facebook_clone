@@ -1,0 +1,26 @@
+<h1>Details</h1>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Image:</strong>
+  <% if !@feed.image.url.nil? %>
+  <%= image_tag @feed.image.url %>
+  <% end %>
+  <strong>message:</strong>
+  <%= @feed.content %>
+</p>
+<% if @feed.user == current_user %>
+  <%= link_to "Edit", edit_feed_path %>
+<% else %>
+  <a></a>
+<% end %>
+<div class="container">
+  <p>コメント一覧（ここから下の内容が重要）</p>
+  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+  <div id="comments_area">
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, feed: @feed } %>
+  </div>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, feed: @feed } %>
+</div>
+<%= link_to 'Back', feeds_path %>
